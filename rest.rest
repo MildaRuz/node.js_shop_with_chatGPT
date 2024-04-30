@@ -1,0 +1,9 @@
+### get all shops
+http://localhost:3000/shops
+
+### get all items
+http://localhost:3000/shops/1/items
+
+
+### get one item
+http://localhost:3000/items/2
