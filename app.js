@@ -68,6 +68,46 @@ app.post('/items', (req, res) => {
   res.status(201).json(newItem);
 });
 
+// Delete a shop by ID
+app.delete('/shops/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  shops = shops.filter((shop) => shop.id !== id);
+  res.status(200).send('Shop deleted successfully');
+});
+
+// Update a shop by ID
+app.put('/shops/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const { name, location } = req.body;
+  const index = shops.findIndex((shop) => shop.id === id);
+  if (index !== -1) {
+    shops[index] = { id, name, location };
+    res.status(200).json(shops[index]);
+  } else {
+    res.status(404).send('Shop not found');
+  }
+});
+
+// Delete an item by ID
+app.delete('/items/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  items = items.filter((item) => item.id !== id);
+  res.status(200).send('Item deleted successfully');
+});
+
+// Update an item by ID
+app.put('/items/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const { name, price, shopId } = req.body;
+  const index = items.findIndex((item) => item.id === id);
+  if (index !== -1) {
+    items[index] = { id, name, price, shopId };
+    res.status(200).json(items[index]);
+  } else {
+    res.status(404).send('Item not found');
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
