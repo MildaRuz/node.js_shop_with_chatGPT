@@ -11,6 +11,9 @@ let items = [
   { id: 1, name: 'Item A', price: 10, shopId: 1 },
   { id: 2, name: 'Item B', price: 20, shopId: 1 },
   { id: 3, name: 'Item C', price: 15, shopId: 2 },
+  { id: 4, name: 'Item D', price: 25, shopId: 1 },
+  { id: 5, name: 'Item E', price: 35, shopId: 2 },
+  { id: 6, name: 'Item F', price: 15, shopId: 2 },
 ];
 
 // Middleware
@@ -72,7 +75,7 @@ app.post('/items', (req, res) => {
 app.delete('/shops/:id', (req, res) => {
   const id = parseInt(req.params.id);
   shops = shops.filter((shop) => shop.id !== id);
-  res.status(200).send('Shop deleted successfully');
+  res.status(204).send();
 });
 
 // Update a shop by ID

@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "278c2432-477a-4e80-886e-2e6b261c66cd",
+		"name": "Shop_tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34520621"
+	},
+	"item": [
+		{
+			"name": "GET shops",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is not empty\", () => {",
+							"    const body = pm.response.json();",
+							"    pm.expect(body).to.not.be.undefined;",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"name\": \"Shoooop\",\n    \"location\": \"online\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST shops",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code 201\", () => {",
+							" pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE shop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete status 204\", () => {",
+							"    pm.response.to.have.status(204);",
+							"})",
+							"",
+							"pm.test(\"Response body is empty\", () => {",
+							"    const body = pm.response.text();",
+							"    pm.expect(body).to.be.empty;",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/shops/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT shops",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body has property id\", () => {",
+							"    const body = pm.response.json();",
+							"    pm.expect(body).to.have.property(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Response body id is not empty\", () => {",
+							"const body = pm.response.json();",
+							"    pm.expect(body.id).to.not.equal(undefined)",
+							"})",
+							"",
+							"pm.test(\"Response body has at least 3 properties\", () => {",
+							"    const body = pm.response.json();",
+							"pm.expect(Object.keys(body)).to.have.lengthOf(3);",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"id\": 3,\n        \"name\": \"New veryyyy nice Shop\",\n        \"location\": \"Online\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
