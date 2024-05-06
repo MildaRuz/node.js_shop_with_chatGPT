@@ -1,0 +1,15 @@
+{
+	"id": "02e56d4b-ea21-46df-854a-710ad0ebc937",
+	"values": [
+		{
+			"key": "BaseUrl",
+			"value": "http://localhost:3000",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-05-06T10:06:37.869Z",
+	"_postman_exported_using": "Postman/10.24.24"
+}
