@@ -1,9 +1,12 @@
 ### get all shops
-http://localhost:3000/shops
+GET http://localhost:3000/shops
 
 ### get all items
-http://localhost:3000/shops/1/items
+GET http://localhost:3000/shops/1/items
 
 
 ### get one item
-http://localhost:3000/items/2
+GET http://localhost:3000/items/2
+
+### delete by ID
+DELETE http://localhost:3000/shops/4
