@@ -7,7 +7,7 @@
   "scripts": {
     "run": "node app.js",
     "dev": "nodemon app.js",
-    "test": "jest",
+    "test": "newman run tests/Shop_tests.postman_collection.json",
     "test:report": "newman run tests/Shop_tests.postman_collection.json -r htmlextra"
   },
   "devDependencies": {
