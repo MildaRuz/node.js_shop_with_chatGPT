@@ -29,11 +29,11 @@ jobs:
    # Run the POSTMAN collection
     - name: Run POSTMAN collection to console
       run: |
-       newman run ./samples/pipeline-example/publicapi-collection.json
+       newman run ./tests/SwaggerPetstore.postman_collection.json
     # Run the POSTMAN collection
     - name: Run POSTMAN collection to file
       run: |
-       newman run ./samples/pipeline-example/publicapi-collection.json -r htmlextra,json --reporter-htmlextra-export testResults/htmlreport.html
+       newman run ./tests/SwaggerPetstore.postman_collection.json -r htmlextra,json --reporter-htmlextra-export testResults/htmlreport.html
 
     # Upload the contents of Test Results directory to workspace
     - name: Output the run Details
